@@ -1,0 +1,29 @@
+services:
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - mongo_data:/data/db
+
+  backend:
+    build: ./backend
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 3001:3001
+    links:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 3000:80
+    links:
+      - backend
+
+volumes:
+  mongo_data:

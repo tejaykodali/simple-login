@@ -1,0 +1,30 @@
+POST http://localhost:3001/api/users
+Content-type: application/json
+
+{
+    "name": "asdfasdf",
+    "password": "123123123",
+    "email": "asdf"
+}
+
+###
+POST http://localhost:3001/api/users
+Content-type: application/json
+
+{
+    "name": "asdfasdf",
+    "password": "123123123",
+    "email": "asdf@asdf9.com"
+}
+
+###
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+    "email": "asdf@asdf9.com",
+    "password": "123123"
+}
+
+###
+GET http://localhost:3001/api/users
