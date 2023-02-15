@@ -1,0 +1,24 @@
+README
+
+I was unable to get the docker compose working for some reason. When I build the docker image separately for backend and frontend, they both run correctly and work as expected, but when I try to run docker compose, they error out.
+
+Instructions to run without docker:
+1. Make sure you have mongodb installed and running locally on the default port.
+2. For backend:
+
+```
+cd backend
+npm install
+npm start
+```
+3. For frontend:
+```
+cd frontend
+npm install
+npm start
+```
+
+Things to note:
+1. There is no email validation performed on the login page, the email validation is only done when signing up, and also in the db itself (since js can easily be disabled in the browser).
+2. Currently, it doesn't support token based authentication, i.e., on refresh, it logs you out.
+3. Password validation can be improved a bit by showing more feedback to the user on what is missing, instead of showing a generic message telling them the requirements.
